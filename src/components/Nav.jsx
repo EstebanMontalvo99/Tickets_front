@@ -9,7 +9,7 @@ const Nav = () => {
       <div className="nav__options">
         <a href="/">Home</a>
 
-        {user ? <a onClick={logout}>Logout</a> : <a href="/login">Login</a>}
+        {user ? <a href='/' onClick={logout}>Logout</a> : <a href="/login">Login</a>}
         {user ? "" : <a href="/signup">Sign up</a>}
       </div>
     </nav>
