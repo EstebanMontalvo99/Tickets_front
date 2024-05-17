@@ -1,16 +1,17 @@
 import React, { useContext } from 'react';
 import './styles/nav.css';
 import { AuthContext } from '../context/AuthProvider';
+import { Link } from 'react-router-dom';
 const Nav = () => {
   const { user, logout } = useContext(AuthContext);
   return (
     <nav className='nav'>
       <h2 className='nav__title'>Compra de tickets</h2>
       <div className="nav__options">
-        <a href="/">Home</a>
+        <Link to="/">Home</Link>
 
-        {user ? <a href='/' onClick={logout}>Logout</a> : <a href="/login">Login</a>}
-        {user ? "" : <a href="/signup">Sign up</a>}
+        {user ? <Link to='/' onClick={logout}>Logout</Link> : <Link to="/login">Login</Link>}
+        {user ? "" : <Link to="/signup">Sign up</Link>}
       </div>
     </nav>
   );
