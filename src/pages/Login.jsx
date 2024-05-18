@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import useFetch from '../hooks/useFetch';
 import { AuthContext } from '../context/AuthProvider';
 
@@ -16,13 +16,14 @@ const Login = () => {
     e.preventDefault();
     const credentials = { email, password };
     await postData(credentials);
-
+  };
+  useEffect(() => {
     // Verifica si no hay errores y si hay datos después de la solicitud
     if (!hasError && data) {
       login(data);
       navigate('/');
     }
-  };
+  }, [data, hasError, login, navigate]);
 
   return (
     <div className='App'>
