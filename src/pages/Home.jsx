@@ -4,7 +4,7 @@ import useFetch from '../hooks/useFetch';
 
 const Home = () => {
   const { user } = useContext(AuthContext); // Obtiene el usuario del contexto
-  const [data, postData, hasError] = useFetch('ticket/request'); // Hook para manejar solicitudes
+  const [postData, hasError] = useFetch('ticket/request'); // Hook para manejar solicitudes
   // Estados
   const [email, setEmail] = useState(user?.user?.email || '');
   const [numberOfTickets, setNumberOfTickets] = useState('');
@@ -13,7 +13,6 @@ const Home = () => {
   const handleBuy = async (e) => {
     e.preventDefault();
     const body = { email, numberOfTickets, name: username };
-    console.log(body);
     await postData(body);
 
     if (!hasError) {

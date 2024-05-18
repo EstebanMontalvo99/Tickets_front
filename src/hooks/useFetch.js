@@ -14,7 +14,6 @@ const useFetch = (parameter) => {
         setState(res.data);
       } catch (err) {
         setHasError(true);
-        console.error(err);
       }
     },
     [url]
